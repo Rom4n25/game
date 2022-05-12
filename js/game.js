@@ -13,63 +13,70 @@ function singleRound(playerSelection,computerSelection){
     computerSelection = computerSelection().toLowerCase();
 
     if(playerSelection == computerSelection){
-        console.log("Tie in the round!");
-        return 0;
-
+        results.textContent="Tie in the round!";
+    
     }else if(playerSelection == "rock" && computerSelection == "scissors"){
-        console.log("You won the round! Rock beat scissors.");
-        return 1;
+        results.textContent="You won the round! Rock beat scissors.";
+        playerScore++;
 
     }else if(playerSelection == "paper" && computerSelection == "rock"){
-        console.log("You won the round! Paper beat rock.");
-        return 1;
+        results.textContent="You won the round! Paper beat rock.";
+        playerScore++;
 
     }else if(playerSelection == "scissors" && computerSelection == "paper"){
-        console.log("You won the round! Scissors beat paper.");
-        return 1;
+        results.textContent="You won the round! Scissors beat paper.";
+        playerScore++;
 
     }else if(playerSelection == "rock" && computerSelection == "paper"){
-        console.log("You lost the round! Paper beat rock.");
-        return 2;
+        results.textContent="You lost the round! Paper beat rock.";
+        computerScore++;
         
     }else if(playerSelection == "paper" && computerSelection == "scissors"){
-        console.log("You lost the round! Scissors beat paper.");
-        return 2;
+        results.textContent="You lost the round! Scissors beat paper.";
+        computerScore++;
 
     }else if(playerSelection == "scissors" && computerSelection == "rock"){
-        console.log("You lost the round! Rock beat scissors.");
-        return 2;
+        results.textContent="You lost the round! Rock beat scissors.";
+        computerScore++;
     }
-}
 
-function game(){
-    let playerScore = 0;
-    let computerScore = 0;
+    if(computerScore == 5 || playerScore ==5){
+
+        result(playerScore,computerScore);
+        computerScore=0;
+        playerScore=0;
+
+        
+    }
+
+    playerPts.textContent=playerScore;
+    computerPts.textContent=computerScore;
     
-    for (let i = 0; i<5 ;i++){
-      let playerSelection = prompt("Type symbol:");
-      let roundResult = singleRound(playerSelection, computerPlay);
-
-        if(roundResult == 1){
-            playerScore++;
-
-        }else{
-            computerScore++;
-        }
-    }
-    result(playerScore,computerScore);
 }
 
 function result(playerScore, computerScore){
 
     if(playerScore>computerScore){
-        console.log("You won the game!");
+        results.textContent="You won the game!";
 
     }else if(playerScore<computerScore){
-        console.log("You lost the game!");
+        results.textContent="You lost the game!";
 
     }else
-        console.log("Tie in the game!");
+    results.textContent="Tie in the game!";
 }
 
-console.log(game());
+let playerScore=0;
+let computerScore=0;
+let playerSelection;
+
+const buttons = document.querySelectorAll("button");
+const results = document.querySelector(".result");
+const playerPts = document.querySelector(".playerPts");
+const computerPts = document.querySelector(".computerPts");
+
+buttons.forEach(button => button.addEventListener("click",(e) => {
+    playerSelection = e.target.textContent}));
+
+buttons.forEach(button => button.addEventListener("click",() => {
+    singleRound(playerSelection,computerPlay)}));
