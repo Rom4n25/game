@@ -3,16 +3,30 @@
     <head>
         <meta charset="UTF-8">
         <title>Rock Paper Scissors</title>
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
     </head>
     <body>
-        <span>Result: </span><span class="result"></span><br>
-        <span>Player points: </span><span class="playerPts"></span><br>
-        <span>Computer points: </span><span class="computerPts"></span>
-        <div class="btnDiv">
-            <button class="btnRock">Rock</button>
-            <button class="btnPaper">Paper</button>
-            <button class="btnScissors">Scissors</button>
+        <header>
+            ROCK, PAPER OR SCISSORS?
+        </header>
+        
+        <div class="scoreContainer">
+            <div class="icon">&#128587;</div>
+            <div class="ptsWrap">
+                <span class="playerPts">0</span> - <span class="computerPts">0</span>
+            </div>
+            <div class="icon">&#128187;</div>   <br>
+        </div>    
+
+        <div class="roundInfo"> Rock, Paper or Scissors?</div>
+        
+        <div class="btnContainer">
+            <button class="Rock">&#9994;</button>
+            <button class="Paper">&#9995;</button>
+            <button class="Scissors">&#9996;</button>
         </div>
+            
         <script src="js/game.js"></script>
     </body>
 </html>
